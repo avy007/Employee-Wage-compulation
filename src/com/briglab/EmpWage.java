@@ -4,41 +4,53 @@ import java.util.Random;
 
 public class EmpWage {
 	
-	static int check;
+	//static int check;
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation Program");
-		/*Calculating Wages
-		for a Month
-		- Assume 20 Working Day per Month*/
-     EmpWage obj=new EmpWage();
-     
-		obj.check();
-		int emppresent=1;
-		int empabsent=0;
-		int empparttime=2;
-		int perdayhr=8;
-		int parttimehr=6;
-		int wageperhr=20;
-		int daypermonth=20;
-		System.out.println(check);
 		
-		if (emppresent==check) {
-			System.out.println("emp present full time "+"monthly wage "+(perdayhr*wageperhr)*daypermonth);
-			
-		}if(empparttime==check) {
-			System.out.println("emp part time"+"monthly wage "+(parttimehr*wageperhr)*daypermonth);
-		}
-		if(empabsent==check) {
-			System.out.println("emp absent");
-		}
+		int wagePerHour = 20;
+		int fullTimeHour = 8;
+		int partTimeHour = 4;
+		int workingDaysOfMonth = 0;
+		int totalHour = 0;
+		int totalDailyWage = 0;
+
 		
 
-	}
-	public void check() {
-		Random obj=new Random();
-		check=obj.nextInt(3); // 0 1 2
+		while (totalHour < 100  && workingDaysOfMonth < 20) {
+			Random obj=new Random();
+			int check=obj.nextInt(3);
+
+			workingDaysOfMonth++;
+			workingDaysOfMonth++;
+
+			switch (check) {
+			case 1:
+				totalHour = totalHour + fullTimeHour;
+				totalDailyWage = totalDailyWage + fullTimeHour * wagePerHour;
+				System.out.println("Employee is present full time: " + totalDailyWage);
+				break;
+			case 2:
+				totalHour = totalHour + partTimeHour;
+				totalDailyWage = totalDailyWage + partTimeHour * wagePerHour;
+				System.out.println("Employee is present half time: " + totalDailyWage);
+				break;
+			default:
+				System.out.println();
+				System.out.println("Employee is absent: " + totalDailyWage);
+			}
+			System.out.println();
+			System.out.println("Working Days is: " + workingDaysOfMonth + " Hours: " + totalHour);
+		}
+		System.out.println();
+		System.out.println("Employee total wage for month is: " + totalDailyWage);
 	}
 
 
-}
+	
+	}
+	
+
+
+
