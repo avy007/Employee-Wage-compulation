@@ -4,25 +4,27 @@ import java.util.Random;
 
 public class EmpWage {
 	
-	//static int check;
+	private static final int wagePerHour = 20; //class variable
+	private static final int fullTimeHour = 8;
+	private static final int partTimeHour = 4;
+	static int workingDaysOfMonth = 0;
+	static int totalHour = 0;
+	static int totalDailyWage = 0;
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to Employee Wage Computation Program");
-		
-		int wagePerHour = 20;
-		int fullTimeHour = 8;
-		int partTimeHour = 4;
-		int workingDaysOfMonth = 0;
-		int totalHour = 0;
-		int totalDailyWage = 0;
 
-		
+		System.out.println("***Welcome to Employee Wage Computation Program***\n");
 
-		while (totalHour < 100  && workingDaysOfMonth < 20) {
+		wageComputation(); //method calling
+
+	}
+
+	public static void wageComputation() {          //static method
+		
+		while (totalHour < 100 && workingDaysOfMonth < 20) {
 			Random obj=new Random();
 			int check=obj.nextInt(3);
 
-			workingDaysOfMonth++;
 			workingDaysOfMonth++;
 
 			switch (check) {
@@ -47,8 +49,6 @@ public class EmpWage {
 		System.out.println("Employee total wage for month is: " + totalDailyWage);
 	}
 
-
-	
 	}
 	
 
